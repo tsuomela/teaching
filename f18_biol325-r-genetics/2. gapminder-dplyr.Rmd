@@ -1,0 +1,51 @@
+---
+title: "Gapminder - Summarizing with dplyr"
+output: html_notebook
+---
+
+# Summarizing the Data
+
+For this section we will be using the dplyr package.
+
+Packages in R are an easy way to import new functions into the program. These functions extend the capabilities of the base program and allow you to analyze data in a more robust fashion.
+
+Documentation on [dplyr](https://dplyr.tidyverse.org/) is located online.
+
+dplyr gives you access to a number of functions that allow you to select, filter, and summarise the data you are examining.
+
+## Filtering
+
+Let's start with a filtering example.
+
+```{r}
+gapminder %>%
+  filter(year == 2007) %>%
+  group_by(continent) %>%
+  summarise(lifeExp = median(lifeExp))
+```
+
+The %>% is called a pipe operator and allows you to send the results of an expression to the inputs of another expression.
+
+group_by is a useful command to combine rows that have information in common. As you will recall, the gapminder dataset contains an observation for a country, which can be grouped into continents. Each line of the data.frame contains one observation, for a given year, for a given continent.
+
+We can see how many unique countries the data contains, by continent using
+
+```{r}
+gapminder %>%
+  group_by(continent) %>%
+  summarize(n_obs = n(), n_countries = n_distinct(country))
+```
+
+Both of these examples introduced the summarize command. This command enables you to perform calculations on the variables in the data.frame and return the results.
+
+So the first example 
+
+* summarize(lifeExp = median(lifeExp))
+
+led to the median of all of the life expectancy observations, grouped by continent, according to the previous command.
+
+The second example uses 2 new commands for summarizing information.
+
+* n() - which just counts all of the examples, still using the group_by command we had before.
+* n_distinct() - which counts the distinct occurrences of a factor. In this case the name of the counties in each of the group_by continents.
+

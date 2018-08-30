@@ -1,0 +1,61 @@
+---
+title: "Gapminder - loading data and viewing the structure"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code.  The notebook will use data from the [Gapminder project](https://www.gapminder.org/).
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Cmd+Option+I*.
+
+When you save the notebook, an HTML file containing the code and output will be saved alongside it (click the *Preview* button or press *Cmd+Shift+K* to preview the HTML file). 
+
+The preview shows you a rendered HTML copy of the contents of the editor. Consequently, unlike *Knit*, *Preview* does not run any R code chunks. Instead, the output of the chunk when it was last run in the editor is displayed.
+
+# The Gapminder Data
+
+First we will load the gapminder library and the data.frame it contains.
+
+Then you can find information about the gapminder dataset by viewing the documentation.
+
+```{r}
+library(gapminder)
+data("gapminder")
+help("gapminder")
+```
+
+The datset contains the following fields:
+
+Format
+
+The main data frame gapminder has 1704 rows and 6 variables:
+
+* country = factor with 142 levels
+* continent = factor with 5 levels
+* year = ranges from 1952 to 2007 in increments of 5 years
+* lifeExp = life expectancy at birth, in years
+* pop = population
+
+You may also explore the dataset to find out more about its structure using the following commands
+
+```{r}
+str(gapminder) # structure of the data.frame
+glimpse(gapminder) # this is only available from the dplyr package
+names(gapminder) # names of the variables in the data.frame
+```
+
+You can also view the content in various ways
+
+```{r}
+head(gapminder) # shows the first 6 rows of the data.frame
+tail(gapminder) # shows the last 6 rows of the data.frame
+```
+
+We can also display some summary information about the data.frame using the summary and table commands.
+
+```{r}
+summary(gapminder)
+table(gapminder$continent) # note the $ sign to refer to a single variable in the data.frame
+```
+

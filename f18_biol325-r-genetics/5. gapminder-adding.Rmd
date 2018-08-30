@@ -1,0 +1,35 @@
+---
+title: "Adding data to gapminder - merging"
+output: html_notebook
+---
+
+# adding data from other files
+
+```{r}
+flood.data <- read.csv("data/flood_deaths_annual_number.csv", header = T)
+
+flood.data <- gather(flood.data, key = year, value = n_deaths, -geo)
+
+flood.data$year <- substr(flood.data$year, 2, 5)
+flood.data$year <- as.integer(flood.data$year)
+```
+
+Showing totals by year
+
+```{r}
+year.flood.totals <- flood.data %>%
+  group_by(year) %>%
+  summarise(n = sum(n_deaths))
+
+ggplot(year.flood.totals,
+  aes(x = year, y = n)) +
+  geom_col()
+```
+
+Combining the columns to add flood data
+
+```{r}
+merged.data <- merge(gapminder, flood.data, by = c("country", "year"), all = T)
+
+```
+
