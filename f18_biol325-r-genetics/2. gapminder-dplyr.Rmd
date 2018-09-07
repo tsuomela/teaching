@@ -49,3 +49,35 @@ The second example uses 2 new commands for summarizing information.
 * n() - which just counts all of the examples, still using the group_by command we had before.
 * n_distinct() - which counts the distinct occurrences of a factor. In this case the name of the counties in each of the group_by continents.
 
+# Back to plots - but with pipes and filters
+
+## Histogram
+
+```{r}
+gapminder %>%
+  filter(year == 2007) %>%
+  ggplot(aes(gdpPercap)) +
+  geom_histogram()
+```
+
+## Box Plot
+
+```{r}
+gapminder %>%
+  filter(year == 2007) %>%
+  ggplot(aes(x = continent, y = lifeExp)) +
+  geom_boxplot()
+```
+
+
+
+## Scatter Plot
+
+```{r}
+gapminder %>%
+  filter(year == 2007) %>%
+  ggplot(aes(x = lifeExp, y = pop)) +
+  geom_point()
+```
+```
+

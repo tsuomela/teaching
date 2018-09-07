@@ -59,3 +59,38 @@ summary(gapminder)
 table(gapminder$continent) # note the $ sign to refer to a single variable in the data.frame
 ```
 
+# Basic graphical data exploration with graphs
+
+## Histogram
+
+A histogram shows the distribution of a single variable, usually across a horizontal axis.  Observations are  grouped into _bins_ in order to show the distribution.
+
+```{r}
+ggplot(gapminder,
+       aes(gdpPercap)) +
+  geom_histogram()
+```
+
+## Box Plot
+
+A box plot is useful for summarizing the distribution of a continuous variable in comparison to a categorical variable.  It also dispays key values such as median, interquartile range, and outliers.
+
+```{r}
+ggplot(gapminder,
+       aes(x = continent, y = lifeExp)) +
+  geom_boxplot()
+```
+
+
+## Scatter Plot
+
+Let's create a scatter plot that shows lifeExp v. pop
+
+Scatter plots work best for continuous numerical variables.
+
+```{r}
+ggplot(gapminder,
+       aes(x = lifeExp, y = pop)) +
+  geom_point()
+```
+

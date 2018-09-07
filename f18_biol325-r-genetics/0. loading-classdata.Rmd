@@ -1,0 +1,95 @@
+---
+title: "Getting to Know You - BIOL 325"
+output: html_notebook
+---
+
+# Welcome to R Notebook
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Cmd+Shift+Enter*. 
+
+## Loading your Libraries and Installing Packages
+
+```{r}
+install.packages(c("ggplot2", "dplyr", "tidyverse"))
+library(ggplot2)
+```
+
+# Variables and Objects
+
+```{r}
+v1 <- c(1, 2, 3)
+v2 <- "Todd Suomela"
+str(v1)
+str(v2)
+```
+
+Learning about your objects. Some common functions.
+
+* str
+* length
+* class
+
+```{r}
+length(v1)
+length(v2)
+class(v1)
+class(v2)
+```
+
+# Reading Data from a File
+
+A typical file structure.
+
+* header = usually the first row of the file contains the names of the variables that have been observed
+* rows = each row usually contains an observation
+* separator = data is usually separated by some type of character (tab, comma) or is in a file format (Excel) that contains columns
+
+```{r}
+read.table("randpedagogy.zip Folder/Getting-to-know-you_results.txt", header = T, sep = "\t")
+getting.d <- read.table("randpedagogy.zip Folder/Getting-to-know-you_results.txt", header = T, sep = "\t")
+```
+
+# Getting a Summary of the File You Loaded
+
+You can find out additional information about the object you just created by asking R.
+
+```{r}
+length(getting.d)
+names(getting.d) # this gives you the names of the columns
+summary(getting.d) # this gives you a summary: for numeric values you get min, 1st qu, median, mean, 3rd qu, and max; for factors you get a count of occurrences
+```
+
+# Let's Get Ready to Create a Graph
+
+To create a graph we will be using a package / library called: ggplot2
+
+In this example we begin by calling the function (ggplot),
+then we tell it which data to map / graph (aes),
+finally we give it a format for the graph (geom)
+
+```{r}
+ggplot(getting.d,
+       aes(Which.is.your.primary.form.of.social.media.)) +
+  geom_bar()
+
+```
+
+Let's clean up the graph to make it easier to read and more presentable.
+
+We can add display elements to the graph by adding more lines with specific function calls.
+
+Let's add a title.
+
+```{r}
+ggplot(getting.d,
+       aes(Which.is.your.primary.form.of.social.media.)) +
+  geom_bar() +
+  labs(title = "Primary Form of Social Media", x = "Platform Name") +
+  coord_flip()
+```
+
+What else could we change to make this graph more readable?
+
+How might you go about finding a solution for this?
