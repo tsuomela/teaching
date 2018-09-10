@@ -1,0 +1,16 @@
+Year	Major	"Please state how much you agree with the following statement: If I was sitting next to someone on a plane, I could explain what evolutionary genomics is and why it is an important field of research (scale 1:5)"	"Please state how much you agree with the following statement: I can employ programming fundamentals like statements, variables, loops, conditional and iterative executions to analyze a large sequencing dataset (scale 1:5)"	Which is your primary form of social media?	How many pets have you had in your life?	Where are you most likely to be found at 8 pm on a Thursday night?	What is challenging about scientific writing?	
+	Biology	4	3	Twitter	22	Studying for Chem class	Communicating complex ideas clearly	
+Senior	Biology	2	3	"Facebook, Instagram"	3	Building my social skills and network through interacting with peers in a low-stakes environment (a.k.a. party)	Identifying main points	
+Grad	Biology	2	1	Instagram	7	Studying for Chem class	Editing	
+Senior	Biology	3	1	Snap Chat	1	Studying & doing homework	Organization	
+Grad	Biology	3	1	Instagram	2	Either in the lab or at home.	Organization	
+Junior	Biology	3	1	Instagram	0	Studying for Chem class	Communicating complex ideas clearly	
+Senior	Biology	3	1	Twitter	5	Dreaming of starting a game league to play D&D and Settlers of Catan... Also probably zoning out to Netflix while telling myself that I should be reading.	Organization	
+Senior	Biology	4	1	Instagram	9	Practice/rehearsal	Communicating complex ideas clearly	
+Senior	Biology	3	1	Instagram	2	Studying for Chem class	Organization	
+Junior	Biology	3	1	Instagram	4	Gym	Communicating complex ideas clearly	
+Senior	Biology	3	1	Twitter	13	Practice/rehearsal	Literature search	
+Junior	Biology	3	2	"Facebook, Instagram"	1	Studying for Chem class	Communicating complex ideas clearly	
+Senior	Biochemistry	3	1	"Facebook, Twitter, Instagram"	1	Studying for Chem class	Editing	
+Senior	Biochemistry	3	1	"Facebook, Instagram, Snapchat"	4	Youth group till 9:30 and then homework	Communicating complex ideas clearly	
+Senior	Biology	1	1	"Facebook, Instagram"	4	Practice/rehearsal	Identifying main points	
