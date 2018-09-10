@@ -1,0 +1,35 @@
+---
+title: "R Resources"
+output: html_notebook
+---
+
+# Objectives
+
+1. Tell you about on-campus and other resources for learning R.
+2. Introduce the R Studio environment
+  * Directory
+  * Packages
+  * Console
+  * Document window
+3. Introduce concepts in R
+  * Loading data
+  * Examining data frames
+  * Graphing with ggplot2 package
+
+# Learning more about R
+
+## Books and Websites
+
+* Bioinformatics Data Skills, by Vince Buffalo, O'Reilly 2015.  http://proquestcombo.safaribooksonline.com/book/bioinformatics/9781449367480
+* R Documentation - https://www.rdocumentation.org/
+* Tidyverse
+  * ggplot2 - http://ggplot2.tidyverse.org/
+
+## Videos and Examples
+
+* Lynda - online videos
+  * Campus portal - https://www.bucknell.edu/lynda
+  * Data Visualization with R - https://www.lynda.com/RStudio-tutorials/Data-Visualization-R-ggplot2/672258-2.html
+* YouTube
+  * Plotting in R for Biologists - https://www.youtube.com/playlist?list=PL-IR12W3BZkXGfIjRtMgAw1Ff0liWX_Aj
+  
