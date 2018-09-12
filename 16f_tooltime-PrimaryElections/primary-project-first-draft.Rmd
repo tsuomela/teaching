@@ -1,0 +1,149 @@
+---
+title: "r-primaries"
+author: "Todd Suomela"
+date: "October 4, 2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Package Setup
+
+Packages to be used and order of attaching
+
+* choroplethr
+* choroplethrMaps
+* dplyr
+
+```{r}
+library(choroplethr)
+library(choroplethrMaps)
+library(dplyr)
+```
+
+## Data Setup
+
+Two activities are completed in this section.  First is attaching county-level data from the choroplethr package. Second is loading the primary data.
+
+1. Attach county-level data from choroplethr
+2. Load the data for Pennsylvania into R
+3. Add a column to the pa.primaries dataframe that transforms the county name into lowercase.  This will be useful later to match the county names in the primary data with the county names in the choroplethr package.
+4. create a data frame of pennsylvania counties and FIPS region abbreviations by filtering the county.regions df for state.name == "pennsylvania"
+
+```{r}
+data("county.regions")
+
+pa.primaries <- read.csv("data/Pennsylvania Primary Results by County.csv", header = TRUE)
+pa.primaries$county.name <- tolower(pa.primaries$County)
+
+pa.counties <- filter(county.regions, state.name == "pennsylvania")
+```
+
+## Plotting Sanders Votes on PA county map
+
+The goal in this section is to create a table that contains two variables: region and value.  These two variables can then be passed to county_choropleth and mapped.
+
+region = FIPS code for the counties
+value = vote total for Sanders in 2016 primary
+
+1. Select to subset just Democratic primary votes and rename columns. This will give us a new table pa.primaries.dem with three columns: county.name, sanders, clinton
+2. Create a new table with the Sanders votes and region.
+3. Rename sanders variable to value.
+4. Execute the choropleth command.
+
+```{r}
+# Filtering the pa.primaries data frame to just the two Democrat candidates, plus renaming the columns.
+pa.primaries.dem <- select(pa.primaries, county.name, sanders = Sanders_Bernie, clinton = Clinton_Hillary)
+
+# Combine the county table from choroplethr with the primary data by matching on the lowercase county name.
+primaries.sanders <-
+  inner_join(pa.counties, pa.primaries.dem, by = "county.name") %>%
+  select(region, sanders)
+
+# Rename in order sanders totals to votes.  An extra unneeded step
+primaries.sanders <- plyr::rename(primaries.sanders, c("sanders" = "votes"))
+
+# Add a value column in order to fit the expected syntax for the choroplethr package
+primaries.sanders$value <- primaries.sanders$votes
+
+county_choropleth(primaries.sanders, 
+  title = "Sanders Votes in 2016", 
+  num_colors = 6, 
+  state_zoom = "pennsylvania")
+
+```
+
+## Improving the plot
+
+Some immediate drawbacks of the plot.
+
+1. The plot as is shows the total number of votes with no account for population of the counties.
+
+Actions
+
+1. Load the "df_county_demographics"" data from the choroplethr package.
+2. Merge the demographic data into the primaries.sanders data frame.
+3. Rename the variable value to votes.
+4. Compute new variable: value, which will be the percent of population voting for Sanders.
+
+```{r}
+data("df_county_demographics")
+
+primaries.sanders <-
+  inner_join(primaries.sanders, df_county_demographics, by = "region")
+
+primaries.sanders$value <- 
+  primaries.sanders$votes / primaries.sanders$total_population
+  
+county_choropleth(primaries.sanders, 
+  title = "Sanders Votes / Population in 2016",
+  legend = "Percentage of Pouplation",
+  num_colors = 6, 
+  state_zoom = "pennsylvania")
+```
+
+# Reviewing a linear model for Sanders votes
+
+The primaries.sanders df should contain the following variables: votes, total_population, percent_white, percen_black, percent_asian, percent_hispanic, per_capita_income, median_rent, and median_age.
+
+## The next step is converting the percents to fractions between (0,1)
+
+1. I do the same transformation across all of the race variables. Create a frac_<name> from the existing percent_<name>
+2. Create a frac_vote variable by dividing votes / total_population.
+
+```{r}
+primaries.sanders$frac_white <- primaries.sanders$percent_white / 100
+primaries.sanders$frac_black <- primaries.sanders$percent_black / 100
+primaries.sanders$frac_asian <- primaries.sanders$percent_asian / 100
+primaries.sanders$frac_hispanic <- primaries.sanders$percent_hispanic / 100
+primaries.sanders$frac_vote <- primaries.sanders$votes / primaries.sanders$total_population
+
+attach(primaries.sanders)
+```
+
+## Creating some linear models
+
+Dependent variable: vote
+Independent variables: frac_white, frac_black, 
+
+1. Model one: frac_white and frac_black
+2. Model two: median_age and frac_white
+3. Race and age: frac_white, frac_black, frac_hispanic, frac_asian, median_age
+3. Complete model: all variables
+
+
+```{r}
+fmodel_white_black <- lm(frac_vote ~ frac_white + frac_black)
+summary(fmodel_white_black)
+
+fmodel_races_age <- lm(frac_vote ~ frac_asian + frac_black + frac_hispanic + frac_white)
+summary(fmodel_races_age)
+
+fmodel_age_white <- lm(frac_vote ~ frac_white + median_age)
+summary(fmodel_age_white)
+
+fmodel_complete <- lm(frac_vote ~ per_capita_income + median_rent + median_age + frac_white + frac_black + frac_asian + frac_hispanic)
+summary(fmodel_complete)
+```

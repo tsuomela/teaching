@@ -1,0 +1,205 @@
+2016-12-07 12:09:12,297 ERROR java.lang.Exception: no input data found in locations: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula-pa.txt
+	at drake.core$should_build_QMARK_.invoke(core.clj:227)
+	at drake.core$predict_steps$fn__4913.invoke(core.clj:273)
+	at clojure.core.protocols$fn__6089.invoke(protocols.clj:127)
+	at clojure.core.protocols$fn__6057$G__6052__6066.invoke(protocols.clj:19)
+	at clojure.core.protocols$seq_reduce.invoke(protocols.clj:31)
+	at clojure.core.protocols$fn__6080.invoke(protocols.clj:48)
+	at clojure.core.protocols$fn__6031$G__6026__6044.invoke(protocols.clj:13)
+	at clojure.core$reduce.invoke(core.clj:6289)
+	at drake.core$predict_steps.invoke(core.clj:269)
+	at drake.core$run.invoke(core.clj:654)
+	at drake.core$drake$fn__5259.invoke(core.clj:890)
+	at drake.core$with_workflow_file.invoke(core.clj:743)
+	at drake.core$drake.doInvoke(core.clj:890)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.RestFn.applyTo(RestFn.java:132)
+	at clojure.core$apply.invoke(core.clj:624)
+	at drake.core$_main.doInvoke(core.clj:904)
+	at clojure.lang.RestFn.invoke(RestFn.java:397)
+	at clojure.lang.AFn.applyToHelper(AFn.java:152)
+	at clojure.lang.RestFn.applyTo(RestFn.java:132)
+	at drake.core.main(Unknown Source)
+
+2016-12-07 12:11:46,285 INFO Running 6 steps with concurrence of 1...
+2016-12-07 12:11:46,338 INFO 
+2016-12-07 12:11:46,339 INFO --- 0. Running (missing output): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././dem-votes.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula-oh.txt
+2016-12-07 12:11:46,685 INFO --- 0: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././dem-votes.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula-oh.txt -> done in 0.33s
+2016-12-07 12:11:46,694 INFO 
+2016-12-07 12:11:46,695 INFO --- 1. Running (missing output): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././rep-votes.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula-oh.txt
+2016-12-07 12:11:46,782 INFO --- 1: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././rep-votes.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula-oh.txt -> done in 0.09s
+2016-12-07 12:11:46,784 INFO 
+2016-12-07 12:11:46,784 INFO --- 2. Running (missing output): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././precinct-names.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula-oh.txt
+2016-12-07 12:11:46,864 INFO --- 2: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././precinct-names.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula-oh.txt -> done in 0.08s
+2016-12-07 12:11:46,865 INFO 
+2016-12-07 12:11:46,866 INFO --- 3. Running (missing output): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././dem-numbers.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././dem-votes.txt
+2016-12-07 12:11:46,891 INFO --- 3: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././dem-numbers.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././dem-votes.txt -> done in 0.02s
+2016-12-07 12:11:46,893 INFO 
+2016-12-07 12:11:46,894 INFO --- 4. Running (missing output): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././rep-numbers.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././rep-votes.txt
+2016-12-07 12:11:46,921 INFO --- 4: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././rep-numbers.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././rep-votes.txt -> done in 0.03s
+2016-12-07 12:11:46,923 INFO 
+2016-12-07 12:11:46,923 INFO --- 5. Running (missing output): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula-final.csv <- 
+2016-12-07 12:11:46,949 INFO --- 5: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula-final.csv <-  -> done in 0.03s
+2016-12-07 12:11:46,953 INFO Done (6 steps run).
+2016-12-07 13:01:07,512 INFO Running 9 steps with concurrence of 1...
+2016-12-07 13:01:07,563 INFO 
+2016-12-07 13:01:07,564 INFO --- 0. Running (missing output): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././dem-grep.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula-oh.txt
+2016-12-07 13:01:07,848 INFO --- 0: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././dem-grep.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula-oh.txt -> done in 0.28s
+2016-12-07 13:01:07,857 INFO 
+2016-12-07 13:01:07,857 INFO --- 1. Running (missing output): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././rep-grep.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula-oh.txt
+2016-12-07 13:01:07,942 INFO --- 1: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././rep-grep.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula-oh.txt -> done in 0.08s
+2016-12-07 13:01:07,944 INFO 
+2016-12-07 13:01:07,945 INFO --- 2. Running (missing output): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././precinct-grep.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula-oh.txt
+2016-12-07 13:01:08,022 INFO --- 2: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././precinct-grep.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula-oh.txt -> done in 0.08s
+2016-12-07 13:01:08,026 INFO 
+2016-12-07 13:01:08,026 INFO --- 3. Running (timestamped): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././dem-votes.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././dem-grep.txt
+2016-12-07 13:02:58,254 INFO Running 6 steps with concurrence of 1...
+2016-12-07 13:02:58,292 INFO 
+2016-12-07 13:02:58,293 INFO --- 3. Running (timestamped): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././dem-votes.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././dem-grep.txt
+2016-12-07 13:02:58,433 INFO --- 3: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././dem-votes.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././dem-grep.txt -> done in 0.13s
+2016-12-07 13:02:58,441 INFO 
+2016-12-07 13:02:58,442 INFO --- 4. Running (timestamped): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././rep-votes.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././rep-grep.txt
+2016-12-07 13:02:58,464 INFO --- 4: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././rep-votes.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././rep-grep.txt -> done in 0.02s
+2016-12-07 13:02:58,467 INFO 
+2016-12-07 13:02:58,467 INFO --- 5. Running (timestamped): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././precinct-names.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././precinct-grep.txt
+2016-12-07 13:02:58,493 INFO --- 5: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././precinct-names.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././precinct-grep.txt -> done in 0.02s
+2016-12-07 13:02:58,496 INFO 
+2016-12-07 13:02:58,496 INFO --- 6. Running (timestamped): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././dem-numbers.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././dem-votes.txt
+2016-12-07 13:02:58,528 INFO --- 6: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././dem-numbers.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././dem-votes.txt -> done in 0.03s
+2016-12-07 13:02:58,531 INFO 
+2016-12-07 13:02:58,531 INFO --- 7. Running (timestamped): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././rep-numbers.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././rep-votes.txt
+2016-12-07 13:02:58,554 INFO --- 7: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././rep-numbers.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././rep-votes.txt -> done in 0.02s
+2016-12-07 13:02:58,555 INFO 
+2016-12-07 13:02:58,556 INFO --- 8. Running (no-input step): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula-final.csv <- 
+2016-12-07 13:02:58,578 INFO --- 8: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula-final.csv <-  -> done in 0.02s
+2016-12-07 13:02:58,579 INFO Done (6 steps run).
+2016-12-07 13:05:24,467 INFO Nothing to do.
+2016-12-07 13:05:44,352 INFO Running 2 steps with concurrence of 1...
+2016-12-07 13:05:44,388 INFO 
+2016-12-07 13:05:44,388 INFO --- 1. Running (forced): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././rep-grep.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula-oh.txt
+2016-12-07 13:05:44,600 INFO --- 1: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././rep-grep.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula-oh.txt -> done in 0.20s
+2016-12-07 13:05:44,607 INFO 
+2016-12-07 13:05:44,607 INFO --- 4. Running (forced): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././rep-votes.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././rep-grep.txt
+2016-12-07 13:05:44,628 INFO --- 4: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././rep-votes.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././rep-grep.txt -> done in 0.02s
+2016-12-07 13:05:44,630 INFO Done (2 steps run).
+2016-12-07 15:07:28,187 ERROR drake: target not found: dem-number.txt
+2016-12-07 15:07:57,391 INFO Aborted.
+2016-12-07 15:08:43,063 INFO Nothing to do.
+2016-12-07 15:09:04,779 INFO Running 1 steps with concurrence of 1...
+2016-12-07 15:09:04,835 INFO 
+2016-12-07 15:09:04,835 INFO --- 6. Running (forced): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././dem-numbers.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././dem-votes.txt
+2016-12-07 15:09:05,078 INFO --- 6: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././dem-numbers.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././dem-votes.txt -> done in 0.23s
+2016-12-07 15:09:05,083 INFO Done (1 steps run).
+2016-12-07 15:10:14,279 INFO Running 1 steps with concurrence of 1...
+2016-12-07 15:10:14,313 INFO 
+2016-12-07 15:10:14,313 INFO --- 7. Running (forced): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././rep-numbers.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././rep-votes.txt
+2016-12-07 15:10:14,436 INFO --- 7: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././rep-numbers.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././rep-votes.txt -> done in 0.12s
+2016-12-07 15:10:14,442 INFO Done (1 steps run).
+2016-12-07 15:11:03,857 INFO Running 1 steps with concurrence of 1...
+2016-12-07 15:11:03,894 INFO 
+2016-12-07 15:11:03,895 INFO --- 8. Running (forced): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula-final.csv <- 
+2016-12-07 15:11:04,025 INFO --- 8: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula-final.csv <-  -> done in 0.12s
+2016-12-07 15:11:04,030 INFO Done (1 steps run).
+2016-12-07 15:13:50,673 INFO Running 1 steps with concurrence of 1...
+2016-12-07 15:13:50,713 INFO 
+2016-12-07 15:13:50,714 INFO --- 8. Running (forced): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula-final.csv <- 
+2016-12-07 15:13:51,371 INFO Done (0 steps run).
+2016-12-07 15:13:51,375 ERROR clojure.lang.ExceptionInfo: shell command failed with exit code 1 {:file "paste -d ',' precinct-names.txt rep-numbers.txt dem-numbers.txt | sed 's/^[ \\t]*//;s/[ \\t]*$//' | sed -i '1s/^/precinct,rep-vote,rep-percent,dem-vote,dem-percent /' > $OUTPUT\n", :msg "shell command failed with exit code 1", :cmd ("/bin/zsh" "/Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/./.drake/shell-c3b9fca7c6b676b7e1969a6a98b7560f.bat"), :opts {:die true, :no-stdin nil, :err [#<PrintStream java.io.PrintStream@35ff3159> #<BufferedWriter java.io.BufferedWriter@297d2967>], :exec-dir nil, :out [#<PrintStream java.io.PrintStream@32cc2bf> #<BufferedWriter java.io.BufferedWriter@7739dc07>]}, :exit-code 1}
+	at clojure.core$ex_info.invoke(core.clj:4403)
+	at drake.shell$shell.doInvoke(shell.clj:150)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invoke(core.clj:624)
+	at drake.protocol$run_interpreter.invoke(protocol.clj:86)
+	at drake.protocol_interpreters$register_interpreter_BANG_$reify__4753.run(protocol_interpreters.clj:14)
+	at drake.core$run_step.invoke(core.clj:367)
+	at drake.core$attempt_run_step.invoke(core.clj:479)
+	at drake.core$function_for_step$fn__5091.invoke(core.clj:502)
+	at drake.core$trigger_futures_helper$fn__5102.invoke(core.clj:540)
+	at clojure.core$binding_conveyor_fn$fn__4145.invoke(core.clj:1910)
+	at clojure.lang.AFn.call(AFn.java:18)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+2016-12-07 15:14:56,813 INFO Running 1 steps with concurrence of 1...
+2016-12-07 15:14:56,850 INFO 
+2016-12-07 15:14:56,850 INFO --- 8. Running (forced): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula-final.csv <- 
+2016-12-07 15:14:57,516 INFO Done (0 steps run).
+2016-12-07 15:14:57,519 ERROR clojure.lang.ExceptionInfo: shell command failed with exit code 1 {:file "paste -d ',' precinct-names.txt rep-numbers.txt dem-numbers.txt | sed 's/^[ \\t]*//;s/[ \\t]*$//' > $OUTPUT\nsed -i '1s/^/precinct,rep-vote,rep-percent,dem-vote,dem-percent/' $OUTPUT > $OUTPUT\n", :msg "shell command failed with exit code 1", :cmd ("/bin/zsh" "/Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/./.drake/shell-df2251f7c1a6658195176701ee810e4f.bat"), :opts {:die true, :no-stdin nil, :err [#<PrintStream java.io.PrintStream@57c46c97> #<BufferedWriter java.io.BufferedWriter@64bf6421>], :exec-dir nil, :out [#<PrintStream java.io.PrintStream@61d95572> #<BufferedWriter java.io.BufferedWriter@13e48126>]}, :exit-code 1}
+	at clojure.core$ex_info.invoke(core.clj:4403)
+	at drake.shell$shell.doInvoke(shell.clj:150)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invoke(core.clj:624)
+	at drake.protocol$run_interpreter.invoke(protocol.clj:86)
+	at drake.protocol_interpreters$register_interpreter_BANG_$reify__4753.run(protocol_interpreters.clj:14)
+	at drake.core$run_step.invoke(core.clj:367)
+	at drake.core$attempt_run_step.invoke(core.clj:479)
+	at drake.core$function_for_step$fn__5091.invoke(core.clj:502)
+	at drake.core$trigger_futures_helper$fn__5102.invoke(core.clj:540)
+	at clojure.core$binding_conveyor_fn$fn__4145.invoke(core.clj:1910)
+	at clojure.lang.AFn.call(AFn.java:18)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+2016-12-07 15:17:16,260 INFO Running 2 steps with concurrence of 1...
+2016-12-07 15:17:16,291 INFO 
+2016-12-07 15:17:16,292 INFO --- 8. Running (missing output): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula.tmp <- 
+2016-12-07 15:17:16,401 INFO --- 8: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula.tmp <-  -> done in 0.10s
+2016-12-07 15:17:16,407 INFO 
+2016-12-07 15:17:16,407 INFO --- 9. Running (timestamped): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula-final.csv <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula.tmp
+2016-12-07 15:17:16,964 INFO Done (1 steps run).
+2016-12-07 15:17:16,969 ERROR clojure.lang.ExceptionInfo: shell command failed with exit code 1 {:file "sed -i '1s/^/precinct,rep-vote,rep-percent,dem-vote,dem-percent/' $INPUT > $OUTPUT\n", :msg "shell command failed with exit code 1", :cmd ("/bin/zsh" "/Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/./.drake/shell-1f03b169221cf27da9b1133a6c6dbdbf.bat"), :opts {:die true, :no-stdin nil, :err [#<PrintStream java.io.PrintStream@6623bc92> #<BufferedWriter java.io.BufferedWriter@2be8179a>], :exec-dir nil, :out [#<PrintStream java.io.PrintStream@163b329e> #<BufferedWriter java.io.BufferedWriter@2da4ffe3>]}, :exit-code 1}
+	at clojure.core$ex_info.invoke(core.clj:4403)
+	at drake.shell$shell.doInvoke(shell.clj:150)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invoke(core.clj:624)
+	at drake.protocol$run_interpreter.invoke(protocol.clj:86)
+	at drake.protocol_interpreters$register_interpreter_BANG_$reify__4753.run(protocol_interpreters.clj:14)
+	at drake.core$run_step.invoke(core.clj:367)
+	at drake.core$attempt_run_step.invoke(core.clj:479)
+	at drake.core$function_for_step$fn__5091.invoke(core.clj:502)
+	at drake.core$trigger_futures_helper$fn__5102.invoke(core.clj:540)
+	at clojure.core$binding_conveyor_fn$fn__4145.invoke(core.clj:1910)
+	at clojure.lang.AFn.call(AFn.java:18)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+2016-12-07 15:29:25,737 INFO Running 2 steps with concurrence of 1...
+2016-12-07 15:29:25,780 INFO 
+2016-12-07 15:29:25,781 INFO --- 8. Running (forced): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula.tmp <- 
+2016-12-07 15:29:25,904 INFO --- 8: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula.tmp <-  -> done in 0.12s
+2016-12-07 15:29:25,911 INFO 
+2016-12-07 15:29:25,912 INFO --- 9. Running (forced): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula-final.csv <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula.tmp
+2016-12-07 15:29:26,481 INFO Done (1 steps run).
+2016-12-07 15:29:26,485 ERROR clojure.lang.ExceptionInfo: shell command failed with exit code 1 {:file "sed '1s/^/precinct,rep-vote,rep-percent,dem-vote,dem-percent\n/' $INPUT > $OUTPUT\n", :msg "shell command failed with exit code 1", :cmd ("/bin/zsh" "/Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/./.drake/shell-ad8957ed53aa46271b5c9d8730440dbf.bat"), :opts {:die true, :no-stdin nil, :err [#<PrintStream java.io.PrintStream@6417f373> #<BufferedWriter java.io.BufferedWriter@458c7f6e>], :exec-dir nil, :out [#<PrintStream java.io.PrintStream@523ac8df> #<BufferedWriter java.io.BufferedWriter@243d8aaf>]}, :exit-code 1}
+	at clojure.core$ex_info.invoke(core.clj:4403)
+	at drake.shell$shell.doInvoke(shell.clj:150)
+	at clojure.lang.RestFn.applyTo(RestFn.java:137)
+	at clojure.core$apply.invoke(core.clj:624)
+	at drake.protocol$run_interpreter.invoke(protocol.clj:86)
+	at drake.protocol_interpreters$register_interpreter_BANG_$reify__4753.run(protocol_interpreters.clj:14)
+	at drake.core$run_step.invoke(core.clj:367)
+	at drake.core$attempt_run_step.invoke(core.clj:479)
+	at drake.core$function_for_step$fn__5091.invoke(core.clj:502)
+	at drake.core$trigger_futures_helper$fn__5102.invoke(core.clj:540)
+	at clojure.core$binding_conveyor_fn$fn__4145.invoke(core.clj:1910)
+	at clojure.lang.AFn.call(AFn.java:18)
+	at java.util.concurrent.FutureTask.run(FutureTask.java:266)
+	at java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1142)
+	at java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:617)
+	at java.lang.Thread.run(Thread.java:745)
+
+2016-12-07 15:40:10,210 INFO Running 2 steps with concurrence of 1...
+2016-12-07 15:40:10,252 INFO 
+2016-12-07 15:40:10,253 INFO --- 8. Running (forced): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula.tmp <- 
+2016-12-07 15:40:10,369 INFO --- 8: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula.tmp <-  -> done in 0.11s
+2016-12-07 15:40:10,375 INFO 
+2016-12-07 15:40:10,376 INFO --- 9. Running (forced): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula-final.csv <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula.tmp
+2016-12-07 15:40:10,403 INFO --- 9: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula-final.csv <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/ohio-ashtabula/././ashtabula.tmp -> done in 0.03s
+2016-12-07 15:40:10,404 INFO Done (2 steps run).

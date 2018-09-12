@@ -1,0 +1,173 @@
+---
+title: "Untitled"
+author: "Todd Suomela"
+date: "10/5/2016"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Functions for supporting the primary analysis
+
+The goal of this document is to develop a set of functions that will allow someone to merge all of the demographic and primary vote data into a form which will allow for basic choropleth and linear model testing.
+
+Before using the functions you must make sure that the df_county_demographics, county.regions, and state primary file are both loaded into R.
+
+## Step 0: Loading data from file
+
+User needs to define the state name.
+
+```{r}
+
+state.for.analysis <- "pennsylvania"
+
+# Utility function for converting strings to Title Case
+upper_name <- function(x) {
+  s <- strsplit(x, " ")[[1]]
+  paste(toupper(substring(s, 1,1)), substring(s, 2),
+      sep="", collapse=" ")}
+
+read_data <- function(x) {
+  uname <- upper_name(x)
+  data_file <- paste("data/", uname, " Primary Results by County.csv", collapse = "", sep = "")
+  incoming_data <- read.csv(data_file, header = TRUE)
+  subset(incoming_data, incoming_data[1] != "") # subset to drop data where first column is empty
+}
+
+state.vote.data <- read_data(state.for.analysis)
+
+# conversions to lower case for standardized processing
+names(state.vote.data) <- tolower(names(state.vote.data))
+state.vote.data$county <- tolower(state.vote.data$county)
+
+```
+## Step 1: Filter and standardize choroplethr data for joining.
+
+First load necessary libraries for county data frames and choropleth functions, as well as dplyr for data cleaning.
+
+Filter the county.regions df from the choroplethr package for the state of interest.
+
+You need to filter the county.regions df first because of potential duplicate county names across the nation.
+
+```{r}
+library(choroplethr)
+library(choroplethrMaps)
+library(dplyr)
+
+data("county.regions")
+data("df_county_demographics")
+
+counties.geo <- filter(county.regions, state.for.analysis == county.regions$state.name)
+
+```
+
+## Step 2: Tidying the data
+
+```{r}
+# make sure the first column of the state.vote.data has a standard name that can be merged with counties.geo
+names(state.vote.data)[1] <- "county.name"
+
+tidy.primary <-
+  state.vote.data %>%
+  tidyr::gather(candidate, votes, -1) # using -1 to ignore first column of data frame which contains the county or subdivision name
+
+
+```
+
+
+
+## Step 3: Perform your joins
+
+This is merging data from the state.vote.data and counties.geo data frames so that choroplethr function can be performed. The join is performed on matches for the county.name column.
+
+```{r}
+# joining counties.geo and state.vote.data
+full.geo.demo.data <-
+  left_join(tidy.primary, counties.geo, by = "county.name") %>%
+  left_join(df_county_demographics, by = "region")
+```
+
+
+## Step 4: Create proportions for demographic data and votes
+
+Note that percent2proportion must be called by quoting the column names. For example, "percent_asian" instead of percent_asian.
+
+
+```{r}
+full.geo.demo.data <-
+  mutate(full.geo.demo.data, vote.proportion = votes / total_population)
+
+# finally a one line hack that transforms all of the percent race items into proportions. Not ideal but it will do the job.
+
+full.geo.demo.data[c("proportion.white",
+                     "proportion.black",
+                     "proportion.asian",
+                     "proportion.hispanic")] <-
+                     sapply (full.geo.demo.data[c("percent_white",
+                     "percent_black",
+                     "percent_asian",
+                     "percent_hispanic")],
+                     function(x)
+                     x / 100)
+
+# I would prefer to generalize this as a function but so far I have not been successful.
+# Reference for this function [stackoverflow](http://stackoverflow.com/questions/26003574/r-dplyr-mutate-use-dynamic-variable-names#31689987)
+# This function takes a data frame and the name of the variable column you wish to convert from percent to proportion. It also adds a new column with the name proportion_%race% instead of percent_%race%
+
+# percent_to_proportion <- function(df, variable) {
+#     varname <- gsub("percent", "proportion", variable)
+#     for (i in length(variable)) {
+#       assign(varname, variable / 100)
+#       # mutate (df, varname = variable[i] / 100)
+#       # df[[varname[i]]] <- df[[variable[i]]] / 100
+#     }
+#     df
+# }
+# 
+# # An early attempt which worked as long as I passed the variable and data frame in four different calls for each percent_race
+# percent_to_proportion <- function (df, per) {
+#   df[[per]] / 100
+# }
+
+```
+
+## Step 5: Making maps for candidates in the current data frame
+
+Call choroplethr for each candidate
+
+```{r}
+
+dplyr::rename(full.geo.demo.data, value = vote.proportion) %>%
+  group_by(candidate)
+# %>%
+#   mean(value)
+
+
+```
+
+# Step 6: exploratory data analysis
+
+```{r}
+library(ggplot2)
+
+hist_vote.proportion <-
+  ggplot(full.geo.demo.data, aes(vote.proportion))
+  + geom_histogram() + facet_wrap( ~ candidate)
+
+sp_votes.population <-
+  ggplot(full.geo.demo.data, aes(x = votes, y = total_population, color = candidate)) + geom_point()
+
+sp_votes.population_smallpop <-
+  filter(full.geo.demo.data, total_population < 50000) %>%
+  ggplot(. , aes(x = votes, y = total_population, color = candidate)) + geom_point()
+
+```
+
+The histogram shows the number of counties that each candidate won binned by vote proportion.  So Jeb Bush and Marco Rubio had very small vote proportions across almost all counties.
+
+For the state of Pennsylvania the county with the largest population cast 200,000+ votes for Clinton; 100,000+ for Sanders; and ~ 25,000 for Trump.  As the population of the county decreases, Trump gets larger numbers of votes.
+
+The second scatter plot covers counties with populations less than 50000 and shows a clear Trump advantage in counties with smaller populations.
+

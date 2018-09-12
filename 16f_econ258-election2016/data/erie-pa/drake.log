@@ -1,0 +1,53 @@
+2016-12-07 09:56:40,983 INFO Running 2 steps with concurrence of 1...
+2016-12-07 09:56:41,032 INFO 
+2016-12-07 09:56:41,034 INFO --- 0. Running (missing output): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././dem-votes.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././erie-pa.txt
+2016-12-07 09:56:41,363 INFO --- 0: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././dem-votes.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././erie-pa.txt -> done in 0.32s
+2016-12-07 09:56:41,373 INFO 
+2016-12-07 09:56:41,374 INFO --- 1. Running (missing output): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././rep-votes.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././erie-pa.txt
+2016-12-07 09:56:41,428 INFO --- 1: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././rep-votes.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././erie-pa.txt -> done in 0.05s
+2016-12-07 09:56:41,429 INFO Done (2 steps run).
+2016-12-07 10:02:58,045 INFO Running 3 steps with concurrence of 1...
+2016-12-07 10:02:58,094 INFO 
+2016-12-07 10:02:58,095 INFO --- 2. Running (missing output): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././precinct-names.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././erie-pa.txt
+2016-12-07 10:06:39,057 INFO Running 1 steps with concurrence of 1...
+2016-12-07 10:06:39,105 INFO 
+2016-12-07 10:06:39,107 INFO --- 3. Running (missing output): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././dem-numbers.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././dem-votes.txt
+2016-12-07 10:06:39,354 INFO --- 3: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././dem-numbers.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././dem-votes.txt -> done in 0.24s
+2016-12-07 10:06:39,360 INFO Done (1 steps run).
+2016-12-07 11:35:33,591 INFO Nothing to do.
+2016-12-07 11:35:55,561 INFO Running 1 steps with concurrence of 1...
+2016-12-07 11:35:55,608 INFO 
+2016-12-07 11:35:55,609 INFO --- 2. Running (missing output): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././precinct-names.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././erie-pa.txt
+2016-12-07 11:47:42,750 INFO Running 1 steps with concurrence of 1...
+2016-12-07 11:47:42,800 INFO 
+2016-12-07 11:47:42,802 INFO --- 4. Running (missing output): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././rep-numbers.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././rep-votes.txt
+2016-12-07 11:47:43,093 INFO --- 4: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././rep-numbers.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././rep-votes.txt -> done in 0.28s
+2016-12-07 11:47:43,100 INFO Done (1 steps run).
+2016-12-07 11:48:50,602 INFO Running 1 steps with concurrence of 1...
+2016-12-07 11:48:50,645 INFO 
+2016-12-07 11:48:50,646 INFO --- 2. Running (forced): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././precinct-names.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././erie-pa.txt
+2016-12-07 11:48:50,799 INFO --- 2: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././precinct-names.txt <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././erie-pa.txt -> done in 0.15s
+2016-12-07 11:48:50,803 INFO Done (1 steps run).
+2016-12-07 11:55:16,089 INFO Running 1 steps with concurrence of 1...
+2016-12-07 11:55:16,134 INFO 
+2016-12-07 11:55:16,135 INFO --- 5. Running (missing output): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././erie-final.csv <- 
+2016-12-07 11:55:16,262 INFO --- 5: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././erie-final.csv <-  -> done in 0.12s
+2016-12-07 11:55:16,268 INFO Done (1 steps run).
+2016-12-07 11:56:32,933 INFO Running 1 steps with concurrence of 1...
+2016-12-07 11:56:32,973 INFO 
+2016-12-07 11:56:32,974 INFO --- 5. Running (forced): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././erie-final.csv <- 
+2016-12-07 11:56:33,298 INFO --- 5: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././erie-final.csv <-  -> done in 0.32s
+2016-12-07 11:56:33,306 INFO Done (1 steps run).
+2016-12-07 11:57:36,127 INFO Running 1 steps with concurrence of 1...
+2016-12-07 11:57:36,171 INFO 
+2016-12-07 11:57:36,171 INFO --- 5. Running (forced): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././erie-final.csv <- 
+2016-12-07 11:57:36,290 INFO --- 5: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././erie-final.csv <-  -> done in 0.11s
+2016-12-07 11:57:36,296 INFO Done (1 steps run).
+2016-12-07 15:42:05,953 INFO Running 2 steps with concurrence of 1...
+2016-12-07 15:42:05,991 INFO 
+2016-12-07 15:42:05,992 INFO --- 5. Running (missing output): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././erie.tmp <- 
+2016-12-07 15:42:06,151 INFO --- 5: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././erie.tmp <-  -> done in 0.15s
+2016-12-07 15:42:06,161 INFO 
+2016-12-07 15:42:06,161 INFO --- 6. Running (timestamped): /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././erie-final.csv <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././erie.tmp
+2016-12-07 15:42:06,184 INFO --- 6: /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././erie-final.csv <- /Users/tes023/Repositories/writing-research-repo/econ258-election2016/data/erie-pa/././erie.tmp -> done in 0.02s
+2016-12-07 15:42:06,186 INFO Done (2 steps run).

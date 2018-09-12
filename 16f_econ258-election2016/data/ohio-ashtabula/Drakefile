@@ -1,0 +1,47 @@
+; Drake processing file for the Ashtabula, OH data
+
+; defining a method to trim leading and trailing whitespace
+
+trim() [shell]
+  sed 's/^[ \t]*//;s/[ \t]*$//' $INPUT > $OUTPUT
+
+
+; step one, get all of the data pieces from the source file
+;
+
+dem-grep.txt <- ashtabula-oh.txt
+  grep "^.*Obama.*$" $INPUT > $OUTPUT
+
+rep-grep.txt <- ashtabula-oh.txt
+  grep "^.*McCain.*$" $INPUT > $OUTPUT
+
+precinct-grep.txt <- ashtabula-oh.txt
+  egrep "\d{4}\s\d{2,3}.*$" $INPUT > $OUTPUT
+
+; trime functions to remove leading and trailing whitespaces in files
+
+dem-votes.txt <- dem-grep.txt [method:trim]
+
+rep-votes.txt <- rep-grep.txt [method:trim]
+
+precinct-names.txt <- precinct-grep.txt [method:trim]
+
+
+; step two, transform and trim the piece files into a format for merging
+;
+
+dem-numbers.txt <- dem-votes.txt
+  rev $INPUT | cut -c1-11 | rev | tr -s ' ' ',' > $OUTPUT
+
+rep-numbers.txt <- rep-votes.txt
+  rev $INPUT | cut -c1-11 | rev | sed 's/^[ \t]*//;s/[ \t]*$//' |  tr -s ' ' ',' > $OUTPUT
+  
+; step three, merge the files into a csv
+;
+
+ashtabula.tmp <-
+  paste -d ',' precinct-names.txt rep-numbers.txt dem-numbers.txt | sed 's/^[ \t]*//;s/[ \t]*$//' > $OUTPUT
+
+ashtabula-final.csv <- ashtabula.tmp
+  echo "precinct,rep-vote,rep-percent,dem-vote,dem-percent" | cat - $INPUT > $OUTPUT
+  

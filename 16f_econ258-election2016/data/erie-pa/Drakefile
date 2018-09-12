@@ -1,0 +1,31 @@
+; Drake processing file for the Erie, PA data
+
+; step one, get all of the data pieces from the source file
+;
+
+dem-votes.txt <- erie-pa.txt
+  grep "^.*Obama.*$" $INPUT > $OUTPUT
+
+rep-votes.txt <- erie-pa.txt
+  grep "^.*McCain.*$" $INPUT > $OUTPUT
+
+precinct-names.txt <- erie-pa.txt
+  egrep "\d{4}\s[A-Z]{2,3}.*$" $INPUT > $OUTPUT
+
+; step two, transform and trim the piece files into a format for merging
+;
+
+dem-numbers.txt <- dem-votes.txt
+  rev $INPUT | cut -c1-11 | rev | tr -s ' ' ',' > $OUTPUT
+
+rep-numbers.txt <- rep-votes.txt
+  rev $INPUT | cut -c1-11 | rev | tr -s ' ' ',' > $OUTPUT
+  
+; step three, merge the files into a csv
+;
+
+erie.tmp <-
+  paste -d ',' precinct-names.txt rep-numbers.txt dem-numbers.txt | sed 's/^[ \t]*//;s/[ \t]*$//' > $OUTPUT
+
+erie-final.csv <- erie.tmp
+  echo "precinct,rep-vote,rep-percent,dem-vote,dem-percent" | cat - $INPUT > $OUTPUT
