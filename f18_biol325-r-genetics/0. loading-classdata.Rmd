@@ -47,8 +47,8 @@ A typical file structure.
 * separator = data is usually separated by some type of character (tab, comma) or is in a file format (Excel) that contains columns
 
 ```{r}
-read.table("randpedagogy.zip Folder/Getting-to-know-you_results.txt", header = T, sep = "\t")
-getting.d <- read.table("randpedagogy.zip Folder/Getting-to-know-you_results.txt", header = T, sep = "\t")
+read.table("data/Getting-to-know-you_results.txt", header = T, sep = "\t")
+getting.d <- read.table("data/Getting-to-know-you_results.txt", header = T, sep = "\t")
 ```
 
 # Getting a Summary of the File You Loaded
@@ -71,10 +71,18 @@ finally we give it a format for the graph (geom)
 
 ```{r}
 ggplot(getting.d,
-       aes(Which.is.your.primary.form.of.social.media.)) +
+       aes(x = Which.is.your.primary.form.of.social.media.)) +
   geom_bar()
 
 ```
+
+```{r}
+names(getting.d)
+ggplot(getting.d,
+       aes(x = Year)) +
+  geom_bar()
+```
+
 
 Let's clean up the graph to make it easier to read and more presentable.
 
@@ -86,8 +94,7 @@ Let's add a title.
 ggplot(getting.d,
        aes(Which.is.your.primary.form.of.social.media.)) +
   geom_bar() +
-  labs(title = "Primary Form of Social Media", x = "Platform Name") +
-  coord_flip()
+  labs(title = "Primary Form of Social Media", x = "Platform Name")
 ```
 
 What else could we change to make this graph more readable?
